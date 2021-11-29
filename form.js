@@ -1,17 +1,19 @@
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA-ZGz0GkdeyULipkALJbb0D2U85cBt1cc",
+  authDomain: "login-d0713.firebaseapp.com",
+  projectId: "login-d0713",
+  storageBucket: "login-d0713.appspot.com",
+  messagingSenderId: "441912840000",
+  appId: "1:441912840000:web:519478706b51463365f4a5"
+};
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBkcLrQaixp8dhiMrNfrWdJ52nyadLS4cU",
-    authDomain: "login-demo-254f7.firebaseapp.com",
-    projectId: "login-demo-254f7",
-    storageBucket: "login-demo-254f7.appspot.com",
-    messagingSenderId: "228883805517",
-    appId: "1:228883805517:web:db9063121d6bf3a79ab304",
-    measurementId: "G-C8Q2HYKHY1"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+
+
 
   const auth =  firebase.auth();
 
