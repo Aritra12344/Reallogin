@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>create an account </title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    
+
+</head>
+<body>
+    <form action="#" class="form-signup">
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                        <div class="form-group">
+                                <label for="number"><i class="zmdi zmdi-phone material-icons-name"></i></label>
+                                <input type="text" name="number" id="number" placeholder="Your Phone Number"/>
+                            </div>
+                        <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-home material-icons-name"></i></label>
+                                <input type="text" name="street" id="street" placeholder="Street Adress"/>
+                            </div>
+                        
+                        <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-home material-icons-name"></i></label>
+                                <input type="text" name="city" id="city" placeholder="City"/>
+                            </div>
+                        <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-home material-icons-name"></i></label>
+                                <input type="text" name="state" id="state" placeholder="State"/>
+                            </div>
+                        <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-home material-icons-name"></i></label>
+                                <input type="text" name="zip" id="zip" placeholder="Zip code"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="useremail" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                  <input type="password" id="userpass" class="form-control" placeholder="Password" required autofocus="">
+                           </div>
+                        
+                        
+                 
+                        
+                        
+                            <div class="form-group form-button">
+                                     <button  type="button" id="signupbtn" class="form-submit"> Sign Up</button>
+                             </div>
+                        
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="SignIn.html" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     </form>
+    
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCchTnseRmYpZhT9bor6IwYkub_b_CL-Gc",
+    authDomain: "log-in-bc98d.firebaseapp.com",
+    projectId: "log-in-bc98d",
+    storageBucket: "log-in-bc98d.appspot.com",
+    messagingSenderId: "337005897714",
+    appId: "1:337005897714:web:4e0403989ce2e76111ad6b",
+    measurementId: "G-37WKYXS487"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  var signupbtn=document.getElementById("signupbtn")
+  var emailsignup=document.getElementById("useremail")
+  var passswordsignup=document.getElementById("userpass")
+
+
+  //================Signup With Email and Password==========================
+  signupbtn.onclick=function(){
+      signupbtn.disabled=true;
+      signupbtn.textContent="Registering Your Account! Please Wait";
+      firebase.auth().createUserWithEmailAndPassword(emailsignup.value,passswordsignup.value).then(function(response){
+        alert("successful");
+            console.log(response);
+      })
+      .catch(function(error){
+        signupbtn.disabled=false;
+        signupbtn.textContent="Sign Up";
+          console.log(error);
+      })
+
+
+  }
+
+
+  //================End Signup With Email and Password======================
+
+</script>
+</body>
+</html>
