@@ -4,23 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="    viewport" content="width=device-width, initial-scale=1.0">
+<form action="#" class="form-signup">
+<input type="email" id="useremail" class="form-control" placeholder="Email address" required autofocus="">
+                <input type="password" id="userpass" class="form-control" placeholder="Password" required autofocus="">
 
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
-<script src="form.js"></script>
-    <title>Login System</title>
-</head>
-<body>
-    <div class="formContainer">
-    <h1>Enter Credentials Here:</h1>
-    <input type="email" placeholder="email here" id="email"><br>
-    <input type="password" placeholder="password here" id="password"><br>
-    <button onclick="signUp()" id="signUp">SignUp</button>
-    <button onclick="signIn()" id="signIp">SignIn</button>
-    <button onclick="signOut()" id="signOut">SignOut</button>
-</div>
+                <button class="btn btn-primary btn-block" type="button" id="signupbtn"><i class="fas fa-user-plus"></i> Sign Up</button>
+                <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+            </form>
+    </script>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
 
 
-    
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCchTnseRmYpZhT9bor6IwYkub_b_CL-Gc",
+    authDomain: "log-in-bc98d.firebaseapp.com",
+    projectId: "log-in-bc98d",
+    storageBucket: "log-in-bc98d.appspot.com",
+    messagingSenderId: "337005897714",
+    appId: "1:337005897714:web:4e0403989ce2e76111ad6b",
+    measurementId: "G-37WKYXS487"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  var signupbtn=document.getElementById("signupbtn")
+  var emailsignup=document.getElementById("useremail")
+  var passswordsignup=document.getElementById("userpass")
+
+
+  //================Signup With Email and Password==========================
+  signupbtn.onclick=function(){
+      signupbtn.disabled=true;
+      signupbtn.textContent="Registering Your Account! Please Wait";
+      firebase.auth().createUserWithEmailAndPassword(emailsignup.value,passswordsignup.value).then(function(response){
+          alert("ok");
+            console.log(response);
+      })
+      .catch(function(error){
+        signupbtn.disabled=false;
+        signupbtn.textContent="Sign Up";
+          console.log(error);
+      })
+
+
+  }
 </body>
 </html>
